@@ -77,7 +77,7 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + StoredArray1);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("You cannot move any messages because there is no other Convo for you to move them to.");
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
@@ -100,7 +100,9 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + StoredArray2);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            String moving1 = input.nextLine();
+                            if(moving1.equalsIgnoreCase("Convo1"))
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
@@ -124,7 +126,7 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + StoredArray3);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
