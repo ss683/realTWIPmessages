@@ -1,6 +1,9 @@
 package com.company;
 import java.util.Scanner;
 import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 
 public class Main {
 
@@ -100,9 +103,48 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + StoredArray2);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Conversation (1 or 2) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 1 and most recent is 3) so it will look like \"1,3\"");
+                            ArrayList<String> ListStored1 = new ArrayList<String>(Arrays.asList(ReplicaArray1));
+                            ArrayList<String> ListStored2 = new ArrayList<String>(Arrays.asList(ReplicaArray2));
                             String moving1 = input.nextLine();
-                            if(moving1.equalsIgnoreCase("Convo1"))
+                            Scanner move =  new Scanner(moving1);
+                            int convo = move.nextInt();
+                            int mess = move.nextInt();
+                            if(convo == 1)
+                            {
+                                if(mess > ListStored1.size())
+                                {
+                                    System.out.println("This convo does not have that message number.");
+                                }
+                                else {
+                                    Collections.reverse(ListStored1);
+                                    String removedMessage = ListStored1.get(mess);
+                                    ListStored1.remove(mess);
+                                    System.out.println("Adding to Convo2...");
+                                    Collections.reverse(ListStored1);
+                                    ListStored2.add(0,removedMessage);
+                                    StoredArray2 = ListStored2.toArray(new String[0]);
+                                }
+                            }
+                            else if(convo == 2)
+                            {
+                                if(mess > ListStored2.size())
+                                {
+                                    System.out.println("This convo does not have that message number.");
+                                }
+                                else {
+                                    Collections.reverse(ListStored2);
+                                    String removedMessage = ListStored2.get(mess);
+                                    ListStored2.remove(mess);
+                                    System.out.println("Adding to Convo1...");
+                                    Collections.reverse(ListStored2);
+                                    ListStored1.add(0,removedMessage);
+                                    StoredArray1 = ListStored1.toArray(new String[0]);
+                                }
+                            }
+                            else
+                                System.out.println("That Convo doesn't exist yet.");
+
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
@@ -126,7 +168,109 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + StoredArray3);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Conversation (Convo1 or Convo2 or Convo3) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 1 and most recent is 3) so it will look like \"Convo1 5\"");
+                            ArrayList<String> ListStored1 = new ArrayList<String>(Arrays.asList(ReplicaArray1));
+                            ArrayList<String> ListStored2 = new ArrayList<String>(Arrays.asList(ReplicaArray2));
+                            ArrayList<String> ListStored3 = new ArrayList<String>(Arrays.asList(ReplicaArray3));
+                            String moving1 = input.nextLine();
+                            Scanner move =  new Scanner(moving1);
+                            int convo = move.nextInt();
+                            int mess = move.nextInt();
+                            if(convo == 1)
+                            {
+                                if(mess > ListStored1.size())
+                                {
+                                    System.out.println("This convo does not have that message number.");
+                                }
+                                else {
+                                    System.out.println("What convo do you want to store this in? (2 or 3)");
+                                    int convoPlacement = input.nextInt();
+                                    if(convoPlacement == 2) {
+                                        Collections.reverse(ListStored1);
+                                        String removedMessage = ListStored1.get(mess);
+                                        ListStored1.remove(mess);
+                                        System.out.println("Adding to Convo2.");
+                                        Collections.reverse(ListStored1);
+                                        ListStored2.add(0, removedMessage);
+                                        StoredArray2 = ListStored2.toArray(new String[0]);
+                                    }
+                                    else if(convoPlacement == 3) {
+                                        Collections.reverse(ListStored1);
+                                        String removedMessage = ListStored1.get(mess);
+                                        ListStored1.remove(mess);
+                                        System.out.println("Adding to Convo3.");
+                                        Collections.reverse(ListStored1);
+                                        ListStored3.add(0, removedMessage);
+                                        StoredArray3 = ListStored3.toArray(new String[0]);
+                                    }
+                                    else
+                                        System.out.println("Cannot add to that Convo.");
+                                }
+                            }
+                            else if(convo == 2)
+                            {
+                                if(mess > ListStored2.size())
+                                {
+                                    System.out.println("This convo does not have that message number.");
+                                }
+                                else {
+                                    System.out.println("What convo do you want to store this in? (1 or 3)");
+                                    int convoPlacement = input.nextInt();
+                                    if(convoPlacement == 1) {
+                                        Collections.reverse(ListStored2);
+                                        String removedMessage = ListStored2.get(mess);
+                                        ListStored2.remove(mess);
+                                        System.out.println("Adding to Convo1.");
+                                        Collections.reverse(ListStored2);
+                                        ListStored1.add(0, removedMessage);
+                                        StoredArray1 = ListStored1.toArray(new String[0]);
+                                    }
+                                    else if(convoPlacement == 3) {
+                                        Collections.reverse(ListStored2);
+                                        String removedMessage = ListStored2.get(mess);
+                                        ListStored2.remove(mess);
+                                        System.out.println("Adding to Convo3.");
+                                        Collections.reverse(ListStored2);
+                                        ListStored3.add(0, removedMessage);
+                                        StoredArray3 = ListStored3.toArray(new String[0]);
+                                    }
+                                    else
+                                        System.out.println("Cannot add to that Convo.");
+                                }
+                            }
+                            else if(convo == 3)
+                            {
+                                if(mess > ListStored3.size())
+                                {
+                                    System.out.println("This convo does not have that message number.");
+                                }
+                                else {
+                                    System.out.println("What convo do you want to store this in? (1 or 2)");
+                                    int convoPlacement = input.nextInt();
+                                    if(convoPlacement == 1) {
+                                        Collections.reverse(ListStored3);
+                                        String removedMessage = ListStored3.get(mess);
+                                        ListStored3.remove(mess);
+                                        System.out.println("Adding to Convo1.");
+                                        Collections.reverse(ListStored3);
+                                        ListStored1.add(0, removedMessage);
+                                        StoredArray1 = ListStored1.toArray(new String[0]);
+                                    }
+                                    else if(convoPlacement == 2) {
+                                        Collections.reverse(ListStored3);
+                                        String removedMessage = ListStored3.get(mess);
+                                        ListStored3.remove(mess);
+                                        System.out.println("Adding to Convo2.");
+                                        Collections.reverse(ListStored3);
+                                        ListStored2.add(0, removedMessage);
+                                        StoredArray2 = ListStored2.toArray(new String[0]);
+                                    }
+                                    else
+                                        System.out.println("Cannot add to that Convo.");
+                                }
+                            }
+                            else
+                                System.out.println("That Convo doesn't exist yet.");
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
@@ -151,7 +295,7 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + ReplicaArray3 + "\n" + "Convo 4: " + StoredArray4);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Conversation (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 1 and most recent is 3) so it will look like \"Convo1 5\"");
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
@@ -177,7 +321,7 @@ public class Main {
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + ReplicaArray3 + "\n" + "Convo 4: " + ReplicaArray4 + "Convo 5: " + StoredArray5);
-                            System.out.println("What do you want to move...specify the Array (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 0 and most recent is 3)");
+                            System.out.println("What do you want to move...specify the Conversation (Convo1 or Convo2 or Convo3 etc.) and the message (furthest back would be 1 and the most recent would be it's number in the convo...so if there are 3 messages, furthest back would be 1 and most recent is 3) so it will look like \"Convo1 5\"");
 
                         } else if (maybe2.equalsIgnoreCase("no")) {
                             System.out.println("Another conversation?");
