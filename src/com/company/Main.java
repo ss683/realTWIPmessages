@@ -291,7 +291,7 @@ public class Main {
                         ReplicaArray2 = StoredArray2;
                         ReplicaArray3 = StoredArray3;
                         StoredArray4 = STORED.getMessageList();
-                      4  System.out.println("Do you want to move around conversations?");
+                      System.out.println("Do you want to move around conversations?");
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + ReplicaArray3 + "\n" + "Convo 4: " + StoredArray4);
