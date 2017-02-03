@@ -118,8 +118,8 @@ public class Main {
                                 }
                                 else {
                                     Collections.reverse(ListStored1);
-                                    String removedMessage = ListStored1.get(mess);
-                                    ListStored1.remove(mess);
+                                    String removedMessage = ListStored1.get(mess - 1);
+                                    ListStored1.remove(mess - 1);
                                     System.out.println("Adding to Convo2...");
                                     Collections.reverse(ListStored1);
                                     ListStored2.add(0,removedMessage);
@@ -134,8 +134,8 @@ public class Main {
                                 }
                                 else {
                                     Collections.reverse(ListStored2);
-                                    String removedMessage = ListStored2.get(mess);
-                                    ListStored2.remove(mess);
+                                    String removedMessage = ListStored2.get(mess - 1);
+                                    ListStored2.remove(mess - 1);
                                     System.out.println("Adding to Convo1...");
                                     Collections.reverse(ListStored2);
                                     ListStored1.add(0,removedMessage);
@@ -187,8 +187,8 @@ public class Main {
                                     int convoPlacement = input.nextInt();
                                     if(convoPlacement == 2) {
                                         Collections.reverse(ListStored1);
-                                        String removedMessage = ListStored1.get(mess);
-                                        ListStored1.remove(mess);
+                                        String removedMessage = ListStored1.get(mess - 1);
+                                        ListStored1.remove(mess - 1);
                                         System.out.println("Adding to Convo2.");
                                         Collections.reverse(ListStored1);
                                         ListStored2.add(0, removedMessage);
@@ -196,8 +196,8 @@ public class Main {
                                     }
                                     else if(convoPlacement == 3) {
                                         Collections.reverse(ListStored1);
-                                        String removedMessage = ListStored1.get(mess);
-                                        ListStored1.remove(mess);
+                                        String removedMessage = ListStored1.get(mess - 1);
+                                        ListStored1.remove(mess - 1);
                                         System.out.println("Adding to Convo3.");
                                         Collections.reverse(ListStored1);
                                         ListStored3.add(0, removedMessage);
@@ -218,8 +218,8 @@ public class Main {
                                     int convoPlacement = input.nextInt();
                                     if(convoPlacement == 1) {
                                         Collections.reverse(ListStored2);
-                                        String removedMessage = ListStored2.get(mess);
-                                        ListStored2.remove(mess);
+                                        String removedMessage = ListStored2.get(mess - 1);
+                                        ListStored2.remove(mess - 1);
                                         System.out.println("Adding to Convo1.");
                                         Collections.reverse(ListStored2);
                                         ListStored1.add(0, removedMessage);
@@ -227,8 +227,8 @@ public class Main {
                                     }
                                     else if(convoPlacement == 3) {
                                         Collections.reverse(ListStored2);
-                                        String removedMessage = ListStored2.get(mess);
-                                        ListStored2.remove(mess);
+                                        String removedMessage = ListStored2.get(mess - 1);
+                                        ListStored2.remove(mess - 1);
                                         System.out.println("Adding to Convo3.");
                                         Collections.reverse(ListStored2);
                                         ListStored3.add(0, removedMessage);
@@ -249,8 +249,8 @@ public class Main {
                                     int convoPlacement = input.nextInt();
                                     if(convoPlacement == 1) {
                                         Collections.reverse(ListStored3);
-                                        String removedMessage = ListStored3.get(mess);
-                                        ListStored3.remove(mess);
+                                        String removedMessage = ListStored3.get(mess - 1);
+                                        ListStored3.remove(mess - 1);
                                         System.out.println("Adding to Convo1.");
                                         Collections.reverse(ListStored3);
                                         ListStored1.add(0, removedMessage);
@@ -258,8 +258,8 @@ public class Main {
                                     }
                                     else if(convoPlacement == 2) {
                                         Collections.reverse(ListStored3);
-                                        String removedMessage = ListStored3.get(mess);
-                                        ListStored3.remove(mess);
+                                        String removedMessage = ListStored3.get(mess - 1);
+                                        ListStored3.remove(mess - 1);
                                         System.out.println("Adding to Convo2.");
                                         Collections.reverse(ListStored3);
                                         ListStored2.add(0, removedMessage);
@@ -291,7 +291,7 @@ public class Main {
                         ReplicaArray2 = StoredArray2;
                         ReplicaArray3 = StoredArray3;
                         StoredArray4 = STORED.getMessageList();
-                        System.out.println("Do you want to move around conversations?");
+                      4  System.out.println("Do you want to move around conversations?");
                         String maybe2 = input.nextLine();
                         if (maybe2.equalsIgnoreCase("yes")) {
                             System.out.println("These are the current convos: " + "\n" + "Convo 1: " + ReplicaArray1 + "\n" + "Convo 2: " + ReplicaArray2 + "\n" + "Convo 3: " + ReplicaArray3 + "\n" + "Convo 4: " + StoredArray4);
